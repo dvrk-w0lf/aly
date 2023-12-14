@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Application Form</title>
+</head>
+<body bgcolor="cyan">
+  <center><b>
+  <h1>Job Application Form</h1>
+  <form action="submit_job_application.php" method="post">
+  
+    <h2>Personal Information:</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required><br><br>
+    
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required><br><br>
+    
+    <h2>Education Section:</h2>
+    <label for="education-level">Highest Level of Education:</label>
+    <select id="education-level" name="education-level" required>
+      <option value="High School">High School</option>
+      <option value="Associate's Degree">Associate's Degree</option>
+      <option value="Bachelor's Degree">Bachelor's Degree</option>
+      <option value="Master's Degree">Master's Degree</option>
+      <option value="Doctorate">Doctorate</option>
+      <!-- Add other education levels as needed -->
+    </select><br><br>
+    
+    <label for="institution-name">Institution Name:</label>
+    <input type="text" id="institution-name" name="institution-name" required><br><br>
+    
+    <label for="graduation-year">Graduation Year:</label>
+    <input type="number" id="graduation-year" name="graduation-year" required><br><br>
+    
+    <label for="major">Major/Area of Study:</label>
+    <input type="text" id="major" name="major" required><br><br>
+    
+    <h2>Employment History:</h2>
+    <div id="employment-section">
+      <div class="employment-entry">
+        <label for="job-title1">Job Title:</label>
+        <input type="text" id="job-title1" name="job-title1" required>
+        <label for="company-name1">Company Name:</label>
+        <input type="text" id="company-name1" name="company-name1" required>
+        <label for="start-date1">Start Date:</label>
+        <input type="date" id="start-date1" name="start-date1" required>
+        <label for="end-date1">End Date:</label>
+        <input type="date" id="end-date1" name="end-date1" required>
+        <label for="responsibilities1">Responsibilities:</label>
+        <textarea id="responsibilities1" name="responsibilities1" rows="5" cols="50" required></textarea>
+      </div>
+    </div>
+    <button type="button" onclick="addEmployment()">Add Employment</button><br><br>
+    
+    <h2>Skills:</h2>
+    <input type="checkbox" id="computer-science" name="skills" value="Computer Science">
+    <label for="computer-science">Computer Science</label><br>
+    <input type="checkbox" id="Programming" name="skills" value="Programming">
+    <label for="Programming">Programming</label><br>
+    <input type="checkbox" id="Cyber-Security" name="skills" value="Cyber Security">
+    <label for="Cyber-Security">Cyber Security </label><br>
+    <input type="checkbox" id="Penetration-Testing" name="skills" value="Penetration Testing">
+    <label for="Penetration-Testing">Penetration Testing</label><br>
+    <input type="checkbox" id="Ethical-Hacking" name="skills" value="Ethical Hacking">
+    <label for="Ethical-Hacking">Ethical Hacking</label><br>
+    <input type="checkbox" id="Information-System" name="skills" value="Information System">
+    <label for="Information-System">Information System</label><br>
+    <input type="checkbox" id="artificial-intelligence" name="skills" value="Artificial Intelligence">
+    <label for="artificial-intelligence">Artificial Intelligence</label><br>
+    <input type="checkbox" id="Software-Engineering" name="skills" value="Software Engineering">
+    <label for="Software-Engineering">Software Engineering</label><br>
+    <input type="checkbox" id="Information-Security" name="skills" value="Information Security">
+    <label for=" Information-Security">Information Security</label><br>
+    <!-- Include other skills as checkboxes -->
+    <br>
+    <label for="additional-info">Add Your Own Skills:</label>
+    <textarea id="additional-info" name="additional-info" rows="5" cols="50"></textarea><br><br>
+    <h2>Additional Information:</h2>
+    <label for="additional-info">Additional Information:</label>
+    <textarea id="additional-info" name="additional-info" rows="5" cols="50"></textarea><br><br>
+    
+    <h2>Cover Letter:</h2>
+    <textarea id="cover-letter" name="cover-letter" placeholder="Enter your cover letter here..." rows="5" cols="50" required></textarea><br><br>
+    
+    <input type="submit" value="Submit Application" required>
+  </form>
+  </b></center>
+  <script>
+    let employmentCount = 1;
+
+    function addEmployment() {
+      employmentCount++;
+      const employmentSection = document.getElementById('employment-section');
+      const newEntry = document.createElement('div');
+      newEntry.classList.add('employment-entry');
+      newEntry.innerHTML = `
+        <label for="job-title${employmentCount}">Job Title:</label>
+        <input type="text" id="job-title${employmentCount}" name="job-title${employmentCount}">
+        <label for="company-name${employmentCount}">Company Name:</label>
+        <input type="text" id="company-name${employmentCount}" name="company-name${employmentCount}">
+        <label for="start-date${employmentCount}">Start Date:</label>
+        <input type="date" id="start-date${employmentCount}" name="start-date${employmentCount}">
+        <label for="end-date${employmentCount}">End Date:</label>
+        <input type="date" id="end-date${employmentCount}" name="end-date${employmentCount}">
+        <label for="responsibilities${employmentCount}">Responsibilities:</label>
+        <textarea id="responsibilities${employmentCount}" name="responsibilities${employmentCount}"></textarea>
+      `;
+      employmentSection.appendChild(newEntry);
+    }
+  </script>
+  <br>
+  <center>  
+  <a href="recipe.html">Back to Recipe</a>
+  </center>
+</body>
+</html>
